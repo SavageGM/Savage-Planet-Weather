@@ -1,0 +1,115 @@
+<form class="spw-app" autocomplete="off">
+  <nav class="spw-tabs" aria-label="Weather sections">
+    <button type="button" class="active" data-spw-tab="weather"><i class="fas fa-cloud-sun-rain"></i> Weather</button>
+    <button type="button" data-spw-tab="scene"><i class="fas fa-map-location-dot"></i> Scene</button>
+    <button type="button" data-spw-tab="savage"><i class="fas fa-radiation"></i> Savage Planet</button>
+    <button type="button" data-spw-tab="gurps"><i class="fas fa-dice"></i> GURPS</button>
+  </nav>
+
+  <section class="spw-tab-panel active" data-spw-panel="weather">
+    <div class="spw-app-grid">
+      <div class="form-group">
+        <label for="spw-app-mode">Mode</label>
+        <select id="spw-app-mode" name="mode">
+          <option value="classic" {{#if isClassic}}selected{{/if}}>Classic d30 Weather</option>
+          <option value="savage" {{#if isSavage}}selected{{/if}}>Savage Planet Weather</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="spw-app-climate">Climate</label>
+        <select id="spw-app-climate" name="climate">
+          {{#each climates}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="spw-app-terrain">Terrain</label>
+        <select id="spw-app-terrain" name="terrain">
+          {{#each terrains}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="spw-app-month">Month</label>
+        <select id="spw-app-month" name="month">
+          {{#each months}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="spw-app-temp">Temperature Method</label>
+        <select id="spw-app-temp" name="tempMethod">
+          <option value="simple" {{#if simpleTemp}}selected{{/if}}>Simple</option>
+          <option value="advanced" {{#if advancedTemp}}selected{{/if}}>Advanced</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="spw-app-variation">Mean Temp Variation</label>
+        <select id="spw-app-variation" name="variation">
+          <option value="none" {{#if noVariation}}selected{{/if}}>None</option>
+          <option value="d3" {{#if d3Variation}}selected{{/if}}>d3: -5 / 0 / +5</option>
+          <option value="d5" {{#if d5Variation}}selected{{/if}}>d5: -10 / -5 / 0 / +5 / +10</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="spw-app-output">Output</label>
+        <select id="spw-app-output" name="output">
+          <option value="dialog" {{#if dialogOutput}}selected{{/if}}>Dialog Box</option>
+          <option value="chat" {{#if chatOutput}}selected{{/if}}>Chat</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="spw-app-roll-mode">Roll Visibility</label>
+        <select id="spw-app-roll-mode" name="rollMode">
+          {{#each rollModes}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="spw-tab-panel" data-spw-panel="scene">
+    <div class="spw-callout">
+      <h3><i class="fas fa-map-location-dot"></i> Active Scene</h3>
+      <p><strong>{{sceneName}}</strong></p>
+      <p>Store climate and terrain once, then generate weather from the scene profile.</p>
+    </div>
+    <div class="spw-button-row">
+      <button type="button" data-action="configure-scene"><i class="fas fa-sliders"></i> Configure Scene Profile</button>
+      <button type="button" data-action="load-scene"><i class="fas fa-download"></i> Load Scene Values</button>
+      <button type="button" data-action="roll-scene"><i class="fas fa-cloud-bolt"></i> Generate from Scene</button>
+    </div>
+  </section>
+
+  <section class="spw-tab-panel" data-spw-panel="savage">
+    <div class="spw-app-grid">
+      <div class="form-group">
+        <label for="spw-app-sector">Sector</label>
+        <select id="spw-app-sector" name="sector">
+          {{#each sectors}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="spw-app-frequency">Phenomenon Frequency</label>
+        <select id="spw-app-frequency" name="savageFrequency">
+          {{#each frequencies}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+        </select>
+      </div>
+    </div>
+    <div class="spw-callout"><p>Savage Planet phenomena layer on top of the standard WTHR, PREC, SCN, and SCS results.</p></div>
+  </section>
+
+  <section class="spw-tab-panel" data-spw-panel="gurps">
+    <label class="spw-check-row">
+      <input id="spw-app-gurps" name="showGurps" type="checkbox" {{#if showGurps}}checked{{/if}}>
+      <span><strong>Include GURPS Effects</strong><br><small>Add visibility, wind, movement, exposure, and hazard guidance.</small></span>
+    </label>
+  </section>
+
+  <footer class="spw-app-footer">
+    <button type="button" data-action="generate"><i class="fas fa-cloud-bolt"></i> Create Weather Event</button>
+  </footer>
+</form>
