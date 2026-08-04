@@ -1,5 +1,3 @@
-const MODULE_ID = "savage-planet-weather";
-
 function openWeather() {
   if (game.savageWeather?.open) {
     game.savageWeather.open();
@@ -8,25 +6,6 @@ function openWeather() {
 
   ui.notifications.error("Savage Planet Weather Engine is not ready. Reload the world and try again.");
 }
-
-Hooks.once("init", () => {
-  game.keybindings.register(MODULE_ID, "openWeather", {
-    name: "Open Savage Planet Weather",
-    hint: "Open the Savage Planet Weather Engine generator window.",
-    editable: [
-      {
-        key: "KeyW",
-        modifiers: ["CONTROL", "SHIFT"]
-      }
-    ],
-    restricted: true,
-    onDown: () => {
-      openWeather();
-      return true;
-    },
-    precedence: CONST.KEYBINDING_PRECEDENCE.NORMAL
-  });
-});
 
 Hooks.on("getSceneControlButtons", controls => {
   if (!game.user?.isGM || Array.isArray(controls)) return;
@@ -60,6 +39,5 @@ Hooks.on("getSceneControlButtons", controls => {
 
 Hooks.once("ready", () => {
   if (!game.user?.isGM) return;
-
-  console.log("Savage Planet Weather Engine | Launcher ready. Use Ctrl+Shift+W or game.savageWeather.open().");
+  console.log("Savage Planet Weather Engine | Launcher ready. Use the scene control button or game.savageWeather.open().");
 });
