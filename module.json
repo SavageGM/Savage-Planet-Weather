@@ -20,7 +20,7 @@
   ],
   "url": "https://github.com/SavageGM/Savage-Planet-Weather",
   "manifest": "https://raw.githubusercontent.com/SavageGM/Savage-Planet-Weather/main/module.json",
-  "download": "https://github.com/SavageGM/Savage-Planet-Weather/releases/download/v0.1.0/savage-planet-weather-v0.1.0.zip",
+  "download": "https://github.com/SavageGM/Savage-Planet-Weather/archive/refs/heads/main.zip",
   "license": "LICENSE",
   "readme": "README.md"
 }
