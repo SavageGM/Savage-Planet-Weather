@@ -97,10 +97,10 @@ export class SavageWeatherApplication extends HandlebarsApplicationMixin(Applica
       height: "auto"
     },
     actions: {
-      generate: SavageWeatherApplication.#generate,
-      "configure-scene": SavageWeatherApplication.#configureScene,
-      "load-scene": SavageWeatherApplication.#loadScene,
-      "roll-scene": SavageWeatherApplication.#rollScene
+      generate: this.#generate,
+      "configure-scene": this.#configureScene,
+      "load-scene": this.#loadScene,
+      "roll-scene": this.#rollScene
     }
   };
 
