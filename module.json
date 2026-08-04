@@ -2,7 +2,7 @@
   "id": "savage-planet-weather",
   "title": "Savage Planet Weather Engine",
   "description": "Climate- and terrain-based weather generation for Savage Planet, including nested storm cells, Fujita-scale tornadoes, optional GURPS effects, and Savage Planet phenomena.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "authors": [
     {
       "name": "SavageGM"
@@ -13,7 +13,8 @@
     "verified": "14"
   },
   "esmodules": [
-    "scripts/main.js"
+    "scripts/main.js",
+    "scripts/launcher.js"
   ],
   "styles": [
     "styles/weather.css"
