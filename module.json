@@ -2,7 +2,7 @@
   "id": "savage-planet-weather",
   "title": "Savage Planet Weather Engine",
   "description": "Climate- and terrain-based weather generation for Savage Planet, including nested storm cells, Fujita-scale tornadoes, optional GURPS effects, Savage Planet phenomena, persistent scene profiles, weather history, diagnostics, and a native Foundry ApplicationV2 interface.",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "authors": [
     {
       "name": "SavageGM"
@@ -25,7 +25,7 @@
   ],
   "url": "https://github.com/SavageGM/Savage-Planet-Weather",
   "manifest": "https://raw.githubusercontent.com/SavageGM/Savage-Planet-Weather/main/module.json",
-  "download": "https://codeload.github.com/SavageGM/Savage-Planet-Weather/zip/refs/heads/main",
+  "download": "https://github.com/SavageGM/Savage-Planet-Weather/releases/download/v0.1.9/savage-planet-weather-v0.1.9.zip",
   "license": "LICENSE",
   "readme": "README.md"
 }
